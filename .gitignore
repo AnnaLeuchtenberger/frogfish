@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Frogfish local database
+frogfish.db
+frogfish.db-journal
+frogfish.db-wal
+frogfish.db-shm

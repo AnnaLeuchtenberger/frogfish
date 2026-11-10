@@ -1,5 +1,5 @@
-from models import Job
 from filters import filter_location
+from models import Job
 
 jobs = [
     Job(

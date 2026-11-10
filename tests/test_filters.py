@@ -1,4 +1,4 @@
-from filters import filter_location
+from filters import filter_location, filter_title
 
 
 def test_new_york_passes():
@@ -34,3 +34,34 @@ def test_remote_excluding_new_york_fails():
 
     assert passed is False
     assert reason == "Location not eligible"
+
+
+def test_solutions_engineer_passes():
+    passed, reason = filter_title("Solutions Engineer")
+
+    assert passed is True
+    assert reason == "Title matches both groups"
+
+
+def test_customer_success_manager_passes():
+    passed, reason = filter_title("Customer Success Manager")
+
+    assert passed is True
+
+
+def test_product_manager_fails():
+    passed, reason = filter_title("Product Manager")
+
+    assert passed is False
+
+
+def test_software_engineer_fails():
+    passed, reason = filter_title("Software Engineer")
+
+    assert passed is False
+
+
+def test_title_matching_is_case_insensitive():
+    passed, reason = filter_title("TECHNICAL ACCOUNT MANAGER")
+
+    assert passed is True
